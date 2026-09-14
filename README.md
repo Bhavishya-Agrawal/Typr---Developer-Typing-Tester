@@ -221,7 +221,7 @@ Populate MongoDB with 250+ curated code snippets and benchmark demo typists:
 npm run seed
 ```
 
-### 4. Run Both Client & Server
+### 4. Run Both Client & Server Locally
 Start both Express backend and Vite frontend with a single command:
 ```bash
 npm run dev
@@ -229,6 +229,18 @@ npm run dev
 
 - **Frontend**: `http://localhost:5173`
 - **Backend**: `http://localhost:5000`
+
+---
+
+## ☁️ Deployment to Vercel
+
+Typr_ is pre-configured with `vercel.json` to deploy both the React frontend and the Express backend as a unified full-stack project under a single Vercel URL.
+
+See the complete step-by-step guide in [VERCEL_DEPLOYMENT_GUIDE.md](VERCEL_DEPLOYMENT_GUIDE.md):
+1. Create a free **MongoDB Atlas** database cluster and copy connection string.
+2. Seed cloud database: `npm run seed` with `MONGO_URI`.
+3. Push to GitHub and import into Vercel.
+4. Add `MONGO_URI`, `JWT_SECRET`, and `NODE_ENV` in Vercel project environment variables.
 
 ---
 

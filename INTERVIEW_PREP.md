@@ -88,10 +88,10 @@ This guide provides articulate, confident answers to common questions an intervi
 
 ---
 
-### Q9: How would you scale this application if it had 100,000 active users?
+### Q9: How does the application deploy to Vercel as a full-stack project?
 **Answer:**
-> *"To scale Typr_ to enterprise traffic:
-> 1. **Leaderboard Caching with Redis**: The global top 100 leaderboard changes frequently but does not need real-time database queries on every page hit. We can use Redis Sorted Sets (`ZREVRANGEBYSCORE`) to retrieve rankings in $O(\log N + M)$ time.
-> 2. **Static Asset CDN**: Deploy the Vite frontend build onto a Content Delivery Network (e.g. AWS CloudFront or Vercel Edge).
-> 3. **Rate Limiting**: Add `express-rate-limit` on submission endpoints to prevent spamming test results.
-> 4. **Horizontal Scaling**: Run multiple Node.js instances behind an Nginx reverse proxy load balancer."*
+> *"We utilize Vercel's unified deployment architecture via `vercel.json`:
+> - The React frontend is built into static assets served via Vercel's global Edge CDN.
+> - The Express backend is exposed as a Vercel Serverless Function via `api/index.js`.
+> - Rewrites forward `/api/*` to the serverless function and all other routes `/(.*)` to the React SPA (`index.html`).
+> - This eliminates CORS issues completely since the frontend and API share the exact same domain."*
