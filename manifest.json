@@ -1,0 +1,22 @@
+{
+  "name": "Typr_",
+  "short_name": "Typr_",
+  "description": "A modern, minimalist typing platform for developers. Practice with real code snippets and improve your coding speed with style.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050509",
+  "theme_color": "#a855f7",
+  "icons": [
+    {
+      "src": "./assets/favicon/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./assets/favicon/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

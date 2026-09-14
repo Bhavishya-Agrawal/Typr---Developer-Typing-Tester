@@ -1,0 +1,19 @@
+{
+  "name": "typr-mern-stack",
+  "version": "2.0.0",
+  "description": "Typr_ – Developer Typing Platform (MERN Full-Stack Project)",
+  "author": "Bhavishya Agrawal",
+  "license": "MIT",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd server && npm run dev",
+    "client": "cd client && npm run dev",
+    "start": "cd server && npm start",
+    "seed": "cd server && npm run seed",
+    "build": "cd client && npm run build",
+    "install-all": "npm install && cd server && npm install && cd ../client && npm install"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

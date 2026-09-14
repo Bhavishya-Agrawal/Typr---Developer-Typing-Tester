@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Typr_ – Developer Typing Lab</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Typr_ - A modern, minimalist typing platform for developers. Practice with real code snippets and improve your coding speed with style.">
+    <meta name="theme-color" content="#a855f7">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./assets/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Typr_">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="./src/css/styles.css">
+</head>
+<body>
+    <div class="bg-layer"></div>
+    <div class="noise-layer"></div>
+
+    <header class="header">
+        <div class="brand">
+            <span class="brand-mark">Typr_</span>
+        </div>
+        <div class="header-actions">
+            <button class="icon-btn" id="themeToggleBtn" aria-label="Switch color theme" title="Change color theme">
+                <span aria-hidden="true">☼</span>
+                <span class="sr-only">Switch color theme</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="hero-shell">
+            <div class="hero-copy">
+                <div class="pill-row">
+                    <span class="pill pill-strong">For developers</span>
+                    <span class="pill pill-soft">Code snippets · WPM · Accuracy</span>
+                </div>
+                <h1 class="hero-title">Type real code, beautifully.</h1>
+                <p class="hero-subtitle">
+                    Typr_ is a focused typing lab for developers. Choose a language, pick a mode, and sprint through curated snippets in a calm, minimal interface.
+                </p>
+            </div>
+
+            <div class="panel">
+                <div class="panel-top">
+                    <div class="chip-group" id="modeGroup">
+                        <button class="chip mode-btn active" data-mode="snippet">Snippet</button>
+                        <button class="chip mode-btn" data-mode="time">Time</button>
+                        <button class="chip mode-btn" data-mode="words">Words</button>
+                    </div>
+
+                    <div class="chip-group" id="optionsBar"></div>
+
+                    <div class="chip-group" id="langGroup">
+                        <button class="chip lang-btn active" data-lang="python">Python</button>
+                        <button class="chip lang-btn" data-lang="javascript">JavaScript</button>
+                        <button class="chip lang-btn" data-lang="java">Java</button>
+                        <button class="chip lang-btn" data-lang="cpp">C++</button>
+                    </div>
+                </div>
+
+                <div class="metrics">
+                    <div class="metric">
+                        <span class="metric-label">WPM</span>
+                        <span class="metric-value" id="wpmMetric">0</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Accuracy</span>
+                        <span class="metric-value" id="accMetric">100%</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Time</span>
+                        <span class="metric-value" id="timeMetric">0s</span>
+                    </div>
+                </div>
+
+                <div class="editor-card">
+                    <div class="editor-header">
+                        <div class="dots">
+                            <span class="dot dot-red"></span>
+                            <span class="dot dot-amber"></span>
+                            <span class="dot dot-green"></span>
+                        </div>
+                        <span class="editor-title" id="codeHeaderTitle">python · snippet</span>
+                    </div>
+                    <div class="editor-body" id="codeDisplay"></div>
+                </div>
+
+                <div class="panel-actions">
+                    <button class="btn-primary" id="restartBtn">Restart</button>
+                    <button class="btn-ghost" id="nextBtn">Next snippet</button>
+                </div>
+
+                <div class="results-overlay" id="resultsView">
+                    <div class="results-card">
+                        <div class="results-pill">Session complete</div>
+                        <h2 class="results-title">Nice run.</h2>
+                        <div class="results-main">
+                            <div class="results-wpm" id="finalWPM">0</div>
+                            <div class="results-main-label">WPM</div>
+                        </div>
+                        <div class="results-grid">
+                            <div>
+                                <span class="results-label">Accuracy</span>
+                                <span class="results-value" id="finalAcc">0%</span>
+                            </div>
+                            <div>
+                                <span class="results-label">Time</span>
+                                <span class="results-value" id="finalTime">0s</span>
+                            </div>
+                        </div>
+                        <div class="results-actions">
+                            <button class="btn-primary" id="resultsNextBtn">Next test</button>
+                            <button class="btn-ghost" id="resultsRetryBtn">Try again</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <span class="footer-text">Typr_ by Bhavishya Agrawal</span>
+        <div class="footer-links">
+            <a href="https://www.linkedin.com/in/bhavishya-agrawal-8530622bb/" target="_blank" rel="noopener noreferrer nofollow" aria-label="LinkedIn (opens in new tab)">LinkedIn</a>
+            <a href="https://github.com/Bhavishya-Agrawal" target="_blank" rel="noopener noreferrer nofollow" aria-label="GitHub (opens in new tab)">GitHub</a>
+            <a href="https://buymeacoffee.com/bhavishyaaagrawal" target="_blank" rel="noopener noreferrer nofollow">Buy me a coffee</a>
+        </div>
+    </footer>
+
+    <div class="theme-drawer" id="themeDrawer">
+        <div class="theme-sheet">
+            <div class="theme-header">
+                <h3>Themes</h3>
+                <button class="icon-btn icon-small" id="themeCloseBtn">✕</button>
+            </div>
+            <p class="theme-subtitle">Switch the surface while the typing stays the same.</p>
+            <div class="theme-grid" id="themeGrid"></div>
+        </div>
+    </div>
+
+    <script type="module" src="./src/js/app.js"></script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(err => {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>
