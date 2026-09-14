@@ -4,14 +4,17 @@
   "description": "Typr_ – Developer Typing Platform (MERN Full-Stack Project)",
   "author": "Bhavishya Agrawal",
   "license": "MIT",
+  "workspaces": [
+    "client",
+    "server"
+  ],
   "scripts": {
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "cd server && npm run dev",
-    "client": "cd client && npm run dev",
-    "start": "cd server && npm start",
-    "seed": "cd server && npm run seed",
-    "build": "cd client && npm install && npm run build",
-    "install-all": "npm install && cd server && npm install && cd ../client && npm install"
+    "server": "npm run dev --workspace=server",
+    "client": "npm run dev --workspace=client",
+    "start": "npm start --workspace=server",
+    "seed": "npm run seed --workspace=server",
+    "build": "npm run build --workspace=client"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
